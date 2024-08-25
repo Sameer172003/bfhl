@@ -11,31 +11,29 @@ app.post("/process",(req,res)=>{
     }
     // const inputArray=data.array;
 
-    const even=[];
-    const odd=[];
+    const num=[];
     const alphabets=[];
+    const low=[];
 
     data.array.forEach((item) => {
         if(typeof item === 'number'){
-            if(item % 2 === 0){
-                even.push(item);
-            }
-            else{
-                odd.push(item);
-            }
+           num.push(item);
         }
         else if(typeof item === 'string' && /^[A-Za-z]+$/.test(item)){
-            alphabets.push(item.toUpperCase());
+            alphabets.push(item);
+        }
+        else if(typeof item === 'string' && /^[a-z]+$/.test(item)){
+            low.push(item);
         }
     });
     res.json({
-        status: 'success',
-        user_id: 12345,
+        status: "true",
+        user_id: "john_doe_17091999",
         email_id: 'user@example.com',
-        college_roll_number: 'CRN2024001',
-        even_numbers: even,
-        odd_numbers: odd,
+        roll_number: "ABCD123",
+        numbers: num,
         alphabets: alphabets,
+        highest_lowercase_alphabet:low,
     });
 });
 
