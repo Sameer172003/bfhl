@@ -5,12 +5,12 @@ const app = express();
 app.use(express.json());
 
 // GET endpoint
-app.get('/api/operation_code', (req, res) => {
+app.get("/bfhl", (req, res) => {
     res.json({ operation_code: "1" });
 });
 
 // POST endpoint
-app.post('/api/user_info', (req, res) => {
+app.post("/bfhl", (req, res) => {
     const dataArray = req.body.data;
 
     // Filter out numbers and alphabets
